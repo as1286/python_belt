@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login/Registration</title>
+</head>
+<body>	
+    {% for message in messages %}
+    <p>{{message}}</p>
+    {% endfor %}	
+		<h1>Registration</h1>
+		<form class='register' action='/process' method='post'>
+		{% csrf_token %}
+			<p>Name: </p><input type="text" name="name">
+			<p>Userame: </p><input type="text" name="username">
+			<p>Password: </p><input type="password" name="password">
+			<p>Confirm PW: </p><input type="password" name="confirm_pw">
+			<p>Date Hired: </p><input type="date" name="date_hired"><br>
+			<input type="submit" value="Register">
+		</form>
+		<br>
+		<h1>Login</h1>
+		<form class='register' action='/login' method='post'>
+		{% csrf_token %}
+			<p>Username: </p><input type="text" name="username">
+			<p>Password: </p><input type="password" name="password"><br>
+			<input type="submit" value="Login">
+		</form>
+</body>
